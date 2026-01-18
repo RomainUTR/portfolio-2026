@@ -1,0 +1,27 @@
+---
+// src/components/Skills.astro
+const skills = [
+  { name: "Unity", category: "Engine", level: "Intermediate" },
+  { name: "Unreal Engine", category: "Engine", level: "Beginner" },
+  { name: "C++", category: "Language", level: "Advanced" },
+  //{ name: "Shader Graph / HLSL", category: "Tech Art", level: "Intermédiaire" },
+  { name: "Git", category: "Tools", level: "Daily" },
+  { name: "Maya", category: "3D", level: "Advanced" },
+  { name: "Blender", category: "3D", level: "Intermediate" },
+];
+---
+
+<section class="py-20 border-t border-zinc-900">
+    <div class="mb-10">
+        <h2 class="text-3xl font-bold text-white mb-2">Technical Experience</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {skills.map((skill) => (
+            <div class="p-4 bg-zinc-900/50 border border-zinc-800 rounded hover:border-indigo-500/50 transition-colors group">
+                <span class="block text-zinc-500 text-xs font-mono mb-1 group-hover:text-indigo-400 transition-colors">{skill.category}</span>
+                <span class="block text-white font-medium">{skill.name}</span>
+            </div>
+        ))}
+    </div>
+</section>
