@@ -1,0 +1,399 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Light of Ko | Romain">
+    <main class="max-w-6xl mx-auto px-6 py-20 text-zinc-300">
+        <header class="mb-24">
+            <a
+                href="/#projects"
+                class="text-zinc-500 hover:text-white mb-8 inline-block font-mono text-sm transition-colors"
+            >
+                ← Back to projects
+            </a>
+
+            <div
+                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12"
+            >
+                <div class="space-y-4">
+                    <h1
+                        class="text-6xl md:text-7xl font-bold text-white tracking-tight"
+                    >
+                        Light of Ko
+                    </h1>
+                    <p class="text-2xl text-zinc-400 font-light">
+                        2D challenging platformer for Global Game Jam 2026
+                    </p>
+                </div>
+
+                <div class="flex gap-4">
+                    <a
+                        href="https://romainutr.itch.io/light-of-ko"
+                        target="_blank"
+                        class="flex items-center justify-center border border-zinc-700 text-zinc-300 px-5 py-3 font-medium rounded hover:border-[#fa5c5c] hover:text-[#fa5c5c] transition-colors"
+                    >
+                        Itch.io
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-zinc-800 py-8 font-mono text-sm"
+            >
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Role</span
+                    >
+                    <span class="text-white block">Gameplay & Tech Art</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Team</span
+                    >
+                    <span class="text-white block"
+                        >2 Developers, 1 GD/Music & 2 Concept Artists</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Duration</span
+                    >
+                    <span class="text-white block">48 Hours (jam)</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Stack</span
+                    >
+                    <span class="text-white block">Unity / C#</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-32 max-w-5xl">
+            <h2
+                class="text-3xl font-bold text-white mb-8 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-indigo-500 rounded-full"></span>
+                The Context
+            </h2>
+
+            <div class="text-lg leading-relaxed space-y-6 text-zinc-300">
+                <p>
+                    Light of Ko was created during the 2026 Global Game Jam on
+                    the theme of <strong class="text-white">“Mask.”</strong>
+                    The player takes on the role of Ko, a Kodama who must save the
+                    forest after an earthquake, but he is frail and must wear a mask
+                    to be able to move around.
+                </p>
+                <p>
+                    In a small group, I worked on the mask system with shaders,
+                    but I also programmed part of the gameplay and did bug fixes
+                    until the last minute.
+                </p>
+
+                <div class="pt-6">
+                    <h3
+                        class="text-white font-bold mb-4 text-base uppercase tracking-wider"
+                    >
+                        My Contributions
+                    </h3>
+                    <ul
+                        class="grid md:grid-cols-3 gap-6 border-t border-zinc-800 pt-6"
+                    >
+                        <li class="block">
+                            <span class="text-indigo-400 block mb-2 text-xl"
+                                >01</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Shader</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Implemented fully functional shader system for
+                                the mask</span
+                            >
+                        </li>
+                        <li class="block">
+                            <span class="text-purple-400 block mb-2 text-xl"
+                                >02</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Gameplay & Bug Fixes</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Implemented gameplay and bug fixes</span
+                            >
+                        </li>
+                        <li class="block">
+                            <span class="text-amber-400 block mb-2 text-xl"
+                                >03</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Sequencer</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Implemented a fully functional sequencer system
+                                for introduction and endings</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2
+                class="text-3xl font-bold text-white mb-12 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-emerald-500 rounded-full"></span>
+                Learning & Implementation
+            </h2>
+
+            <div class="mb-12 max-w-3xl">
+             <p class="text-xl text-white mb-4 leading-relaxed">
+                In <em>Light of Ko</em>, darkness isn't just aesthetic—it's the main antagonist. 
+                I needed a way to restrict the player's vision dynamically without relying on heavy transparent sprites.
+            </p>
+            <p class="text-zinc-400 leading-relaxed">
+                My solution was to create a custom <strong>Fullscreen Shader</strong> (Post-Process). 
+                By manipulating the <em>Blit Source</em> directly on the GPU, I achieved a smooth, performant transition that acts as a vignetting effect driven by gameplay logic.
+            </p>
+        </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-start mb-20">
+                <div class="space-y-4">
+                    <h3
+                        class="text-xl text-white font-bold flex items-center gap-2"
+                    >
+                        <span class="text-purple-400">01.</span> The Result
+                    </h3>
+                    <div
+                        class="aspect-square bg-black rounded-xl border border-zinc-800 overflow-hidden shadow-lg"
+                    >
+                        <video
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            class="w-full h-full object-cover"
+                        >
+                            <source
+                                src="/videos/lightofko_mask.mp4"
+                                type="video/mp4"
+                            />
+                        </video>
+                    </div>
+                    <p class="text-zinc-400 text-sm">
+                        The player can activate and deactivate the mask as desired. 
+                        The transition is interpolated.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3
+                        class="text-xl text-white font-bold flex items-center gap-2"
+                    >
+                        <span class="text-amber-400">02.</span> The Logic
+                    </h3>
+                    <div
+                        class="group relative aspect-square bg-[#222] rounded-xl border border-zinc-800 overflow-hidden cursor-zoom-in"
+                    >
+                        <img
+                            src="/images/lightofko_mask.png"
+                            alt="Unity Shader Graph"
+                            class="w-full h-full object-contain p-2 group-hover:scale-150 transition-transform duration-500 ease-in-out"
+                        />
+
+                        <div
+                            class="absolute bottom-4 right-4 bg-black/80 text-white text-xs px-2 py-1 rounded backdrop-blur-sm pointer-events-none"
+                        >
+                            Hover to Zoom
+                        </div>
+                    </div>
+                    <div class="text-zinc-400 text-sm space-y-2">
+                        <p>
+                            <code class="bg-zinc-800 px-1 rounded text-purple-300">Fullscreen Shader</code> effect for atmospheric overlay. 
+                            It captures the URP Blit Source and blends a dark tint based on a sampled texture mask, 
+                            with controllable intensity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl text-white font-bold mb-4">
+                        Create Sequencer System
+                    </h3>
+                    <p class="text-zinc-400 leading-relaxed text-lg mb-6">
+                        When finalizing the game, and in order to honor the magnificent work
+                        done by the artists, I coded a <strong class="text-white">Sequencer</strong> so that I could stage
+                        the narration and the mini comic strips that had been created.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed text-lg">
+                        For my subsequent projects, I adapted my manager into a
+                        logic that could be reused for any input.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-2xl mb-32"
+            >
+                <div
+                    class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                >
+                    <span class="ml-2">Sequencer.cs</span>
+                    <span
+                        class="bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded text-[10px] ml-auto"
+                        >MAKE IN THE LAST HOUR</span
+                    >
+                </div>
+
+                <div class="p-8 overflow-x-auto">
+                    <pre
+                        is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+
+public class Sequencer : MonoBehaviour
+{
+    [System.Serializable]
+    public struct IntroSlide
+    {
+        public string name;
+
+        public CanvasGroup imageGroup;
+        public CanvasGroup textGroup;
+
+        public TMP_Text textComponent;
+        [TextArea(3, 10)] public string storyText;
+    }
+
+    [Header("Settings")]
+    [SerializeField] private float imageFadeInTime = 1f;
+    [SerializeField] private float textFadeInTime = 1f;
+    [SerializeField] private float displayTime = 6f;
+    [SerializeField] private float textFadeOutTime = 1f;
+
+    [SerializeField] private string nextSceneName = "GameScene";
+    [SerializeField] private MusicTrack[] introTrack;
+
+    [Header("Sequence Data")]
+    [SerializeField] private List<IntroSlide> slides;
+
+    private string ActiveScene;
+
+    private void Start()
+    {
+        ActiveScene = SceneManager.GetActiveScene().name;
+        if (ActiveScene == "Introduction")
+        {
+            AudioManager.Instance.ChangeAmbianceMusic(introTrack);
+        }
+        StartCoroutine(PlayIntroSequence());
+    }
+
+    // This duplication below is not ideal, but it was necessary to meet the tight deadline of the jam.
+    // Instead of creating a more generic system, I had to quickly implement the specific logic for the introduction and ending sequences, which led to some code repetition.
+
+    private IEnumerator PlayIntroSequence()
+    {
+        foreach (var slide in slides)
+        {
+            if (ActiveScene == "Introduction")
+            {
+                if (slide.name == "2")
+                {
+                    displayTime = 4f;
+                    Debug.Log(slide.name);
+                    if (slide.textComponent != null)
+                    {
+                        slide.textComponent.text = slide.storyText;
+                    }
+
+                    slide.imageGroup.alpha = 0f;
+                    slide.textGroup.alpha = 0f;
+
+                    yield return StartCoroutine(FadeCanvasGroup(slide.imageGroup, 0f, 1f, imageFadeInTime));
+
+                    yield return StartCoroutine(FadeCanvasGroup(slide.textGroup, 0f, 1f, textFadeInTime));
+
+                    yield return new WaitForSeconds(displayTime);
+
+                    yield return StartCoroutine(FadeCanvasGroup(slide.textGroup, 1f, 0f, textFadeOutTime));
+                }
+                else
+                {
+                    Debug.Log(slide.name);
+                    if (slide.textComponent != null)
+                    {
+                        slide.textComponent.text = slide.storyText;
+                    }
+
+                    slide.imageGroup.alpha = 0f;
+                    slide.textGroup.alpha = 0f;
+
+                    yield return StartCoroutine(FadeCanvasGroup(slide.imageGroup, 0f, 1f, imageFadeInTime));
+
+                    yield return StartCoroutine(FadeCanvasGroup(slide.textGroup, 0f, 1f, textFadeInTime));
+
+                    yield return new WaitForSeconds(displayTime);
+
+                    yield return StartCoroutine(FadeCanvasGroup(slide.textGroup, 1f, 0f, textFadeOutTime));
+                }
+            } else
+            {
+                Debug.Log(slide.name);
+                if (slide.textComponent != null)
+                {
+                    slide.textComponent.text = slide.storyText;
+                }
+
+                slide.imageGroup.alpha = 0f;
+                slide.textGroup.alpha = 0f;
+
+                yield return StartCoroutine(FadeCanvasGroup(slide.imageGroup, 0f, 1f, imageFadeInTime));
+
+                yield return StartCoroutine(FadeCanvasGroup(slide.textGroup, 0f, 1f, textFadeInTime));
+
+                yield return new WaitForSeconds(displayTime);
+
+                yield return StartCoroutine(FadeCanvasGroup(slide.textGroup, 1f, 0f, textFadeOutTime));
+            }
+        }
+
+        if (ActiveScene == "Introduction")
+        {
+            LoadNextScene();
+        }
+    }
+    private IEnumerator FadeCanvasGroup(CanvasGroup group, float start, float end, float duration)
+    {
+        float counter = 0f;
+        while (counter < duration)
+        {
+            counter += Time.deltaTime;
+            group.alpha = Mathf.Lerp(start, end, counter / duration);
+            yield return null;
+        }
+        group.alpha = end;
+    }
+
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(nextSceneName);
+    }
+}
+</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

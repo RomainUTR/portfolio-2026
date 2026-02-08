@@ -1,0 +1,256 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Neon Racer | Romain">
+    <main class="max-w-6xl mx-auto px-6 py-20 text-zinc-300">
+        <header class="mb-24">
+            <a
+                href="/#projects"
+                class="text-zinc-500 hover:text-white mb-8 inline-block font-mono text-sm transition-colors"
+            >
+                ← Back to projects
+            </a>
+
+            <div
+                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12"
+            >
+                <div class="space-y-4">
+                    <h1
+                        class="text-6xl md:text-7xl font-bold text-white tracking-tight"
+                    >
+                        Neon Racer [On Development]
+                    </h1>
+                    <p class="text-2xl text-zinc-400 font-light">
+                        Futuristic time trial racing game with a focus on flow
+                        and speed.
+                    </p>
+                </div>
+
+                <div class="flex gap-4">
+                    <a
+                        href="#"
+                        target="_blank"
+                        class="flex items-center justify-center border border-zinc-700 text-zinc-300 px-5 py-3 font-medium rounded hover:border-[#fa5c5c] hover:text-[#fa5c5c] transition-colors"
+                    >
+                        Coming Soon
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-zinc-800 py-8 font-mono text-sm"
+            >
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Role</span
+                    >
+                    <span class="text-white block">Gameplay & Game Design</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Team</span
+                    >
+                    <span class="text-white block"
+                        >2 Developers/Game Designer</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Duration</span
+                    >
+                    <span class="text-white block">10 weeks</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Stack</span
+                    >
+                    <span class="text-white block">Unity / C#</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-32 max-w-5xl">
+            <h2
+                class="text-3xl font-bold text-white mb-8 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-indigo-500 rounded-full"></span>
+                The Context
+            </h2>
+
+            <div class="text-lg leading-relaxed space-y-6 text-zinc-300">
+                <p>
+                    Neon Racer is being developed as part of a school project
+                    based on designing a controller with good game feel. The
+                    project is based on a <strong class="text-white"
+                        >prototype</strong
+                    >
+                    I made between the end of our previous project and the launch
+                    of this one.
+                </p>
+                <p>
+                    In this game, you play a ship that is <strong
+                        class="text-white"
+                        >attracted to the ground regardless of its orientation</strong
+                    > in a futuristic setting. Our goal is to create a dynamic game
+                    with a gameplay loop based on completing a level 100% and competing
+                    for the high score.
+                </p>
+
+                <div class="pt-6">
+                    <h3
+                        class="text-white font-bold mb-4 text-base uppercase tracking-wider"
+                    >
+                        My Contributions
+                    </h3>
+                    <ul
+                        class="grid md:grid-cols-3 gap-6 border-t border-zinc-800 pt-6"
+                    >
+                        <li class="block">
+                            <span class="text-indigo-400 block mb-2 text-xl"
+                                >01</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Controller</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Implemented a fully functional controller</span
+                            >
+                        </li>
+                        <li class="block">
+                            <span class="text-purple-400 block mb-2 text-xl"
+                                >02</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Chrono</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Implemented a fully functional chronometer
+                                system with checkpoints</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2
+                class="text-3xl font-bold text-white mb-12 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-emerald-500 rounded-full"></span>
+                Learning & Implementation
+            </h2>
+
+            <div class="mb-6">
+                <h3 class="text-xl text-white font-bold mb-2">
+                    The Hover Physics
+                </h3>
+                <p class="text-zinc-400 leading-relaxed">
+                    The biggest challenge with hover vehicles is making them
+                    feel grounded. A simple force often results in endless
+                    bouncing. I implemented a <strong class="text-white"
+                        >Spring-Damper system</strong
+                    > (Hooke's Law) on each of the 4 thrusters independently. This
+                    allows the ship to tilt and react to uneven terrain naturally,
+                    just like a car suspension.
+                </p>
+            </div>
+
+            <div
+                class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-2xl mb-32"
+            >
+                <div
+                    class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                >
+                    <span class="ml-2">HoverController.cs</span>
+                    <span
+                        class="bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded text-[10px] ml-auto"
+                        >HOOKE'S LAW APPLICATION</span
+                    >
+                </div>
+
+                <div class="p-8 overflow-x-auto">
+                    <pre
+                        is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+// Physics logic applied to each thruster (corner of the ship)
+
+// 1. Calculate Compression (Spring)
+// How far are we compressed compared to the target height?
+float compression = _currentHoverTarget - hit.distance;
+
+// 2. Calculate Damping (Shock Absorber)
+// We check the vertical velocity at this specific thruster point.
+// This prevents the ship from oscillating/bouncing endlessly.
+float downwardSpeed = Vector3.Dot(rb.GetPointVelocity(thruster.position), transform.up);
+
+// 3. Apply Hooke's Law Formula (F = -kx - bv)
+// Spring Strength pushes up, Damper resists the movement.
+float force = (compression * settings.springStrength) - (downwardSpeed * settings.springDamper);
+
+// Apply the calculated force at the exact position of the thruster logic
+rb.AddForceAtPosition(transform.up * force, thruster.position);
+</code></pre>
+                </div>
+            </div>
+
+            <div class="mb-6 mt-12">
+                <h3 class="text-xl text-white font-bold mb-2">
+                    Sticking to the Track (Spline Projection)
+                </h3>
+                <p class="text-zinc-400 leading-relaxed">
+                    In a game with loops and vertical walls, standard gravity
+                    doesn't work. Instead of complex raycast averaging, I used
+                    the track's <strong class="text-white">Spline Data</strong>.
+                    By projecting the ship's position onto the spline, I
+                    retrieve the exact surface normal and smoothly align the
+                    ship's "Up" vector to it. This ensures the ship never falls
+                    off, even upside down.
+                </p>
+            </div>
+
+            <div
+                class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-2xl mb-32"
+            >
+                <div
+                    class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                >
+                    <span class="ml-2">HoverController.cs</span>
+                    <span
+                        class="bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded text-[10px] ml-auto"
+                        >SPLINE PROJECTION</span
+                    >
+                </div>
+
+                <div class="p-8 overflow-x-auto">
+                    <pre
+                        is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+// Aligning the ship to the track surface (Spline)
+
+if (currentSpline != null)
+{
+    // Project our position onto the spline to find the closest point
+    SplineSample sample = new SplineSample();
+    currentSpline.Project(transform.position, ref sample);
+
+    // Smoothly blend the ship's "Up" vector towards the track's normal.
+    // We use Slerp to keep it fluid, avoiding jerky rotations on steep loops.
+    averageNormal = Vector3.Slerp(averageNormal, sample.up, 0.8f);
+}
+
+// Calculate the new forward direction relative to this surface normal
+Vector3 targetForward = Vector3.ProjectOnPlane(transform.forward, averageNormal).normalized;
+Quaternion targetRotation = Quaternion.LookRotation(targetForward, averageNormal);
+
+// Apply rotation using physics
+rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * settings.alignSpeed));
+</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
