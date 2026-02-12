@@ -45,21 +45,27 @@ import Layout from "../../layouts/Layout.astro";
                         class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
                         >Role</span
                     >
-                    <span class="text-white block">Gameplay & Sound Design</span>
+                    <span class="text-white block">Gameplay & Sound Design</span
+                    >
                 </div>
                 <div>
                     <span
                         class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
                         >Team</span
                     >
-                    <span class="text-white block">3 Developers & 6 Concept Artists</span>
+                    <span class="text-white block"
+                        >3 Developers & 6 Concept Artists</span
+                    >
                 </div>
                 <div>
                     <span
                         class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
-                        >Duration</span
+                        >Timeline</span
                     >
                     <span class="text-white block">4.5 Days (Jam)</span>
+                    <span class="text-zinc-400 text-[10px] block mt-1 italic"
+                        >Nov. 2025 | Bachelor 1st Year</span
+                    >
                 </div>
                 <div>
                     <span
@@ -81,10 +87,12 @@ import Layout from "../../layouts/Layout.astro";
 
             <div class="text-lg leading-relaxed space-y-6 text-zinc-300">
                 <p>
-                    Terra Carta was created during a ‘Creative Week’ at Bellecour Ecole. 
-                    We had less than five days to independently create a creative experience within the constraints of the cards and with a theme of our choice. 
-                    We chose “Echo” and ‘Fragment’ as a bonus. 
-                    We worked with a third-year student as our lead, who taught us a lot.
+                    Terra Carta was created during a ‘Creative Week’ at
+                    Bellecour Ecole. We had less than five days to independently
+                    create a creative experience within the constraints of the
+                    cards and with a theme of our choice. We chose “Echo” and
+                    ‘Fragment’ as a bonus. We worked with a third-year student
+                    as our lead, who taught us a lot.
                 </p>
                 <p>
                     Our goal was to create a <strong class="text-white"
@@ -143,21 +151,23 @@ import Layout from "../../layouts/Layout.astro";
                         Handling UI in World Space
                     </h3>
                     <p class="text-zinc-400 leading-relaxed text-lg mb-6">
-                        One of my tasks was to create tooltips for the cards to explain their effects on other cards. 
-                        I used a <strong
+                        One of my tasks was to create tooltips for the cards to
+                        explain their effects on other cards. I used a <strong
                             class="text-white">Singleton Pattern</strong
-                        > so that the behavior could be accessed from anywhere without 
+                        > so that the behavior could be accessed from anywhere without
                         complex links, especially in the context of a jam.
                     </p>
                     <p class="text-zinc-400 leading-relaxed text-lg">
-                        My biggest challenge was to position the interface correctly 
-                        so that it would display above my card and automatically stretch 
-                        to fit the size of the text.
+                        My biggest challenge was to position the interface
+                        correctly so that it would display above my card and
+                        automatically stretch to fit the size of the text.
                     </p>
                 </div>
             </div>
 
-            <div class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-2xl mb-32">
+            <div
+                class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-2xl mb-32"
+            >
                 <div
                     class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
                 >
@@ -207,25 +217,33 @@ public class TooltipBehaviour : MonoBehaviour
         </section>
 
         <section class="mb-20 pt-32 border-t border-transparent">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <h2
+                class="text-3xl font-bold text-white mb-8 flex items-center gap-3"
+            >
                 <span class="w-12 h-1 bg-purple-500 rounded-full"></span>
                 Sound Design & Atmosphere
             </h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="text-lg leading-relaxed space-y-6">
                     <p>
-                        For a relaxing game, audio plays a major part in the experience. 
-                        My experience in animation helps me understand the importance of 
+                        For a relaxing game, audio plays a major part in the
+                        experience. My experience in animation helps me
+                        understand the importance of
                         <strong>feedback</strong>.
                     </p>
                 </div>
-                <div class="aspect-video bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden shadow-lg">
+                <div
+                    class="aspect-video bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden shadow-lg"
+                >
                     <video
                         controls
                         class="w-full h-full object-cover"
                         poster="/images/terracarta-cover.png"
                     >
-                        <source src="/videos/terracarta_audio.mp4" type="video/mp4" />
+                        <source
+                            src="/videos/terracarta_audio.mp4"
+                            type="video/mp4"
+                        />
                         Your browser does not support the video tag.
                     </video>
                 </div>
