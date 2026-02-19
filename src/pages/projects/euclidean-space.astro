@@ -1,0 +1,455 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Non Euclidean | Romain">
+    <main class="max-w-6xl mx-auto px-6 py-20 text-zinc-300">
+        <header class="mb-24">
+            <a
+                href="/#projects"
+                class="text-zinc-500 hover:text-white mb-8 inline-block font-mono text-sm transition-colors"
+            >
+                ← Back to projects
+            </a>
+
+            <div
+                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12"
+            >
+                <div class="space-y-4">
+                    <h1
+                        class="text-6xl md:text-7xl font-bold text-white tracking-tight"
+                    >
+                        Non Euclidean Simulation
+                    </h1>
+                    <p class="text-2xl text-zinc-400 font-light">
+                        Challenging myself for simulation of non Euclidean
+                        spaces
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-zinc-800 py-8 font-mono text-sm"
+            >
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Role</span
+                    >
+                    <span class="text-white block">Tech Art</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Team</span
+                    >
+                    <span class="text-white block">Solo</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Timeline</span
+                    >
+                    <span class="text-white block">5 Days (jam)</span>
+                    <span class="text-zinc-400 text-[10px] block mt-1 italic"
+                        >Jan. 2025 | Bachelor 1st Year</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Stack</span
+                    >
+                    <span class="text-white block">Unity / C# / HLSL</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-32 max-w-5xl">
+            <h2
+                class="text-3xl font-bold text-white mb-8 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-indigo-500 rounded-full"></span>
+                The Context
+            </h2>
+
+            <div class="text-lg leading-relaxed space-y-6 text-zinc-300">
+                <p>
+                    As part of Creative Week at Bellecour Ecole, and to
+                    challenge myself, I attempted to simulate <strong
+                        class="text-white">non euclidean spaces</strong
+                    > (elliptic and hyperbolic), with a view to potentially incorporating
+                    them into a game on the theme of collective hallucinations.
+                </p>
+                <p>
+                    Unfortunately, my level using this simulation could not be
+                    used for the game, but I learned a lot, and I still want to
+                    do something with it one day.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <div class="relative w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl">
+                <video 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline 
+                    class="w-full h-full object-cover"
+                >
+                    <source src="/videos/noneuclidean-demo.mp4" type="video/mp4" />
+                </video>
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-6 left-6 pointer-events-none">
+                    <span class="bg-indigo-600/80 text-white text-xs font-mono px-3 py-1 rounded backdrop-blur-sm border border-indigo-400/50">
+                        IN-ENGINE REALTIME SIMULATION
+                    </span>
+                </div>
+            </div>
+            <p class="text-center text-zinc-500 font-mono text-sm mt-4">
+                Dynamic transition between Euclidean, Elliptic, and Hyperbolic spaces.
+            </p>
+        </section>
+
+        <section class="mb-32">
+            <h2
+                class="text-3xl font-bold text-white mb-12 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-emerald-500 rounded-full"></span>
+                Learning & Implementation
+            </h2>
+            <div class="mb-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-amber-400 font-mono text-sm">01.</span> The
+                    World Bender Logic
+                </h3>
+
+                <div
+                    class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4"
+                >
+                    <p>
+                        To bend the world without destroying performance, we
+                        must avoid heavy operations like square roots (<code
+                            class="text-white bg-zinc-800 px-1 rounded"
+                            >length</code
+                        >) on every vertex. The most optimized approach is to
+                        use a <strong>parabolic approximation</strong>.
+                    </p>
+                    <p>
+                        By calculating the squared distance between the vertex
+                        and the camera on the XZ plane, we naturally get a
+                        parabolic curve. The mathematical formula is:
+                    </p>
+
+                    <div
+                        class="bg-black/30 p-4 rounded-lg border border-zinc-800 text-center font-mono text-lg text-emerald-300 my-4 tracking-wider"
+                    >
+                        Offset = K &middot; (|| P<sub>xz</sub> - C<sub>xz</sub> ||)<sup
+                            >2</sup
+                        >
+                    </div>
+
+                    <p>
+                        Where <em>K</em> is our global curvature modifier, <em
+                            >P</em
+                        > is the vertex position, and <em>C</em> is the camera position.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-xl max-w-4xl mb-8"
+                >
+                    <div
+                        class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                    >
+                        <span class="ml-2">WorldBenderLogic.hlsl</span>
+                        <span
+                            class="bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded text-[10px] ml-auto"
+                            >CUSTOM FUNCTION</span
+                        >
+                    </div>
+                    <div class="p-6 overflow-x-auto">
+                        <pre
+                            is:raw><code class="language-hlsl text-sm font-mono leading-relaxed">
+// 1. Calculate the distance vector on the horizontal plane (ignoring height)
+float2 d = Pos.xz - CamPos.xz;
+
+// 2. Calculate squared distance via Dot Product (cheaper than length())
+// This naturally creates the parabolic y = x² drop-off curve.
+float distSq = dot(d, d);
+
+// 3. Multiply by the Global Curvature (K) driven by the C# Manager
+float offset = distSq * K;
+
+// 4. Apply the vertical offset to the vertex
+OutPos = float3(Pos.x, Pos.y - offset, Pos.z);
+</code></pre>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 max-w-5xl">
+                    <div
+                        class="group relative bg-[#222] rounded-xl border border-zinc-800 overflow-hidden shadow-lg"
+                    >
+                        <img
+                            src="/images/euclidean-subgraph.png"
+                            alt="SubGraph Logic"
+                            class="w-full h-auto object-cover"
+                        />
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 border-t border-zinc-700"
+                        >
+                            <p class="text-xs text-white font-mono">
+                                Wrapping the HLSL into a reusable SubGraph.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="group relative bg-[#222] rounded-xl border border-zinc-800 overflow-hidden shadow-lg"
+                    >
+                        <img
+                            src="/images/euclidean-shader.jpeg"
+                            alt="Master Shader Graph"
+                            class="w-full h-auto object-cover"
+                        />
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 border-t border-zinc-700"
+                        >
+                            <p class="text-xs text-white font-mono">
+                                Artist-friendly integration in the Master Graph.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-24 mt-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-blue-400 font-mono text-sm">02.</span> The CPU
+                    Orchestrator
+                </h3>
+
+                <div
+                    class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4"
+                >
+                    <p>
+                        With the GPU logic in place, I needed a way to control
+                        the curvature dynamically based on gameplay events.
+                        Updating hundreds of materials individually via <code
+                            class="text-white bg-zinc-800 px-1 rounded"
+                            >GetComponent</code
+                        > would be a performance disaster.
+                    </p>
+                    <p>
+                        Instead, I built a centralized <strong
+                            class="text-white">Manager</strong
+                        > that interpolates the target curvature and injects it directly
+                        into the Render Pipeline as a global variable. It runs in
+                        <code class="text-white bg-zinc-800 px-1 rounded"
+                            >[ExecuteAlways]</code
+                        >, allowing Level Designers to preview the World Bending
+                        in the editor without entering Play Mode.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-xl max-w-4xl"
+                >
+                    <div
+                        class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                    >
+                        <span class="ml-2">EuclideanManager.cs</span>
+                        <span
+                            class="bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded text-[10px] ml-auto"
+                            >GLOBAL DATA INJECTION</span
+                        >
+                    </div>
+                    <div class="p-6 overflow-x-auto">
+                        <pre
+                            is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+using UnityEngine;
+using Sirenix.OdinInspector;
+using TMPro;
+
+public enum EuclidianMode
+{
+    Euclidean,
+    Elliptic,
+    Hyperbolic
+}
+
+[ExecuteAlways]
+public class EuclidianManager : MonoBehaviour
+{
+    [SerializeField]
+    private float loopDuration = 3f;
+
+    [SerializeField] private float lerpSpeed = 2f;
+    [SerializeField] private float curvatureMultiplier = 1f;
+    [SerializeField] private bool isInteractable = false;
+
+    [EnumButtons, ReadOnly] public EuclidianMode mode;
+
+    private float currentCurve = 0f;
+    private float targetCurve = 0f;
+    private int curveID;
+    public int currentStep = 0;
+
+    public float CurrentCurve => currentCurve;
+    public EuclidianMode CurrentMode => mode;
+    public float CurvatureMultiplier => curvatureMultiplier;
+
+    private InputActions ctx;
+
+    private void OnEnable()
+    {
+        ctx = new InputActions();
+        ctx.Enable();
+        curveID = Shader.PropertyToID("_DirectGlobalCurve");
+    }
+
+    private void OnDisable()
+    {
+        ctx.Disable();
+    }
+
+    private void Update()
+    {
+        currentCurve = Mathf.Lerp(currentCurve, targetCurve, Time.deltaTime * lerpSpeed);
+        Shader.SetGlobalFloat(curveID, currentCurve);
+
+        if (isInteractable)
+        {
+            if (Application.isPlaying && ctx.Euclidean.ChangeMode.WasPressedThisFrame())
+            {
+                ChangeEuclideanMode();
+            }
+        }
+    }
+
+    [Button]
+    public void SetEuclidean()
+    {
+        targetCurve = 0f * curvatureMultiplier;
+        mode = EuclidianMode.Euclidean;
+        currentStep = 0;
+    }
+
+    [Button]
+    public void SetElliptic()
+    {
+        targetCurve = 0.01f * curvatureMultiplier;
+        mode = EuclidianMode.Elliptic;
+        currentStep = 1;
+    }
+
+    [Button]
+    public void SetHyperbolic()
+    {
+        targetCurve = -0.01f * curvatureMultiplier;
+        mode = EuclidianMode.Hyperbolic;
+        currentStep = 2;
+    }
+
+    private void ChangeEuclideanMode()
+    {
+        currentStep = (currentStep + 1) % 3;
+
+        switch (currentStep)
+        {
+            case 0:
+                SetEuclidean();
+                break;
+            case 1:
+                SetElliptic();
+                break;
+            case 2:
+                SetHyperbolic();
+                break;
+        }
+    }
+}
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="mb-24 mt-24">
+            <h3
+                class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+            >
+                <span class="text-purple-400 font-mono text-sm">03.</span> The Frustum
+                Culling Fix
+            </h3>
+
+            <div class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4">
+                <p>
+                    A major architectural flaw with GPU vertex displacement is
+                    the <strong class="text-white"
+                        >CPU-GPU desynchronization</strong
+                    >. Unity's CPU handles Frustum Culling based on the
+                    original, un-displaced bounding boxes. When the world bends,
+                    the displaced vertices might be visible on camera, but the
+                    CPU thinks the original object is off-screen and stops
+                    rendering it entirely. This causes meshes to randomly pop
+                    out of existence.
+                </p>
+                <p>
+                    To fix this without calculating complex dynamic bounds every
+                    frame, I wrote a utility script attached to environmental
+                    objects. It overrides the mesh bounds at initialization,
+                    ensuring the rendering pipeline doesn't prematurely cull
+                    bent objects.
+                </p>
+            </div>
+
+            <div
+                class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-xl max-w-4xl"
+            >
+                <div
+                    class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                >
+                    <span class="ml-2">CurvedObjectBounds.cs</span>
+                    <span
+                        class="bg-purple-900/50 text-purple-300 px-2 py-0.5 rounded text-[10px] ml-auto"
+                        >FRUSTUM CULLING OVERRIDE</span
+                    >
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <pre
+                        is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+using UnityEngine;
+
+public class CurvedObjectBounds : MonoBehaviour
+{
+    private void Start()
+    {
+        // 1. Retrieve the MeshFilter component
+        var meshFilter = GetComponent&lt;MeshFilter&gt;();
+
+        if (meshFilter != null)
+        {
+            // 2. Access the instance of the mesh
+            Mesh mesh = meshFilter.mesh;
+
+            // 3. Artificially expand the bounding box to a massive size.
+            // This forces the CPU to always send this mesh to the GPU for rendering,
+            // preventing the object from popping out when the world bends heavily.
+            mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 10000f);
+        }
+    }
+}
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>
