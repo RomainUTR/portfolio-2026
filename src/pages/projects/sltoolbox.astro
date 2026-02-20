@@ -1,0 +1,187 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Unity Toolbox | Romain">
+    <main class="max-w-5xl mx-auto px-6 py-20 text-zinc-300">
+        
+        {/* HEADER */}
+        <header class="mb-20 border-b border-zinc-800 pb-12">
+            <a href="/#projects" class="text-zinc-500 hover:text-white mb-8 inline-block font-mono text-sm">← Back to portfolio</a>
+            
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                Unity Production Toolbox
+            </h1>
+            <p class="text-xl text-zinc-400 font-light max-w-3xl mb-8">
+                A custom suite of Editor tools designed to speed up the workflow of designers, secure scene management, and clean up the Inspector. Tested and used in student productions.
+            </p>
+            <div class="flex flex-wrap gap-4 text-sm font-mono text-emerald-400">
+                <span class="bg-emerald-900/30 px-3 py-1 rounded">Editor Scripting</span>
+                <span class="bg-emerald-900/30 px-3 py-1 rounded">C# Reflection</span>
+                <span class="bg-emerald-900/30 px-3 py-1 rounded">UX/UI</span>
+            </div>
+        </header>
+
+        <section class="mb-32 max-w-5xl">
+            <h2
+                class="text-3xl font-bold text-white mb-8 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-indigo-500 rounded-full"></span>
+                The Context
+            </h2>
+
+            <div class="text-lg leading-relaxed space-y-6 text-zinc-300">
+                <p>
+                    During my first projects on Unity, I discovered tools made by other people, 
+                    particularly at my school, which allowed me to solve certain problems I was 
+                    having. So I decided to create my own tool to solve my problems and 
+                    make my life easier.
+                </p>
+                <p>
+                    The project is taking shape and is being used in certain student projects. 
+                    The long-term goal is a public release once the beta testing phase is complete.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="w-8 h-1 bg-blue-500 rounded-full"></span>
+                01. Robust Scene Referencing
+            </h2>
+            
+            <div class="relative w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl mb-8">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                    <source src="/videos/scenereference-demo.mp4" type="video/mp4" />
+                </video>
+            </div>
+
+            <div class="text-zinc-400 leading-relaxed max-w-3xl space-y-4 mb-8">
+                <p>
+                    <strong class="text-white">The UX Problem:</strong> Hardcoding scene names as strings leads to crashes if a scene is renamed. Furthermore, designers often forget to add new scenes to the Build Settings, breaking the game at runtime.
+                </p>
+                <p>
+                    <strong class="text-white">The Solution:</strong> A complete custom <code class="text-white bg-zinc-800 px-1 rounded">SceneReference</code> type. It allows dragging and dropping Scene Assets safely. If the dropped scene is missing from the Build Settings, a custom Property Drawer detects it and displays a one-click button to fix the issue directly from the Inspector.
+                </p>
+            </div>
+            
+            <div class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-xl max-w-4xl">
+                <div class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono">
+                    <span class="ml-2">Test.cs</span>
+                    <span class="bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded text-[10px] ml-auto">EXEMPLE</span>
+                </div>
+                <div class="p-6 overflow-x-auto">
+<pre is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+using UnityEngine;
+using RomainUTR.SLToolbox;
+using UnityEngine.SceneManagement;
+
+public class TestScene : MonoBehaviour
+{
+    [SLRequired, SerializeField] private SceneReference sceneRef;
+
+    [SLButton("Load the scene")]
+    private void LoadLevel()
+    {
+        Debug.Log("Loading the scene: " + sceneRef);
+        SceneManager.LoadScene(sceneRef);
+    }
+}
+
+</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="w-8 h-1 bg-amber-500 rounded-full"></span>
+                02. Fast Scene Switcher
+            </h2>
+
+            <div class="relative w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl mb-8">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                    <source src="/videos/sceneswitcher-demo.mp4" type="video/mp4" />
+                </video>
+            </div>
+
+            <div class="text-zinc-400 leading-relaxed max-w-3xl space-y-4">
+                <p>
+                    Navigating through project folders to find a specific level breaks the developer's flow. I created a fast, context-aware <strong class="text-white">Scene Switcher Popup</strong>.
+                </p>
+                <p>
+                    Instead of a clunky dockable window, it opens instantly via a custom shortcut or by clicking the scene in Hierarchy. It lists all available scenes and allows developers to jump between environments in a fraction of a second, drastically reducing iteration friction.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="w-8 h-1 bg-purple-500 rounded-full"></span>
+                03. Custom Inspector Attributes
+            </h2>
+            
+            <p class="text-zinc-400 leading-relaxed max-w-3xl mb-12">
+                A clean Inspector leads to a cleaner game. Drawing inspiration from heavy plugins like Odin Inspector, I built a lightweight, native attribute library utilizing <strong class="text-white">C# Reflection</strong> to empower the team without bloating the project.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
+                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLButton]</h3>
+                    <p class="text-zinc-400 text-sm">Transforms a standard C# method into a clickable Inspector button. Perfect for triggering debug events or level logic without entering Play Mode.</p>
+                </div>
+
+                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
+                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLMinMax]</h3>
+                    <p class="text-zinc-400 text-sm">Converts a Vector2 into a dual-slider. Essential for designers tweaking random ranges (like spawn delays or damage variations).</p>
+                </div>
+
+                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
+                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLCallback]</h3>
+                    <p class="text-zinc-400 text-sm">Uses Reflection to invoke a specific method the moment the serialized value is modified in the Inspector. Great for auto-updating visuals in the Editor.</p>
+                </div>
+
+                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
+                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLDropdown]</h3>
+                    <p class="text-zinc-400 text-sm">Dynamically populates a dropdown list by calling a function. Prevents spelling errors on dynamic IDs.</p>
+                </div>
+
+                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
+                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLReadOnly] & [SLTitle]</h3>
+                    <p class="text-zinc-400 text-sm">Formatting utilities. ReadOnly displays a variable without allowing modification, while Title creates clean, stylized headers to structure massive scripts.</p>
+                </div>
+
+                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
+                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLInline]</h3>
+                    <p class="text-zinc-400 text-sm">Allows editing ScriptableObjects directly within the component's Inspector, saving designers from constantly switching contexts.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-24 border-t border-zinc-800 pt-16">
+            <div class="bg-gradient-to-br from-zinc-900 to-black p-8 rounded-2xl border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="max-w-2xl">
+                    <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                        <span class="w-8 h-1 bg-emerald-500 rounded-full"></span>
+                        Roadmap & Public Release
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed mb-6">
+                        This toolbox is currently in closed beta, being battle-tested across student productions to gather UX feedback and fix edge cases. 
+                        Once the toolbox is fully stabilized, my goal is to package it for a public release on the <strong class="text-white">Unity Asset Store</strong> and/or <strong class="text-white">GitHub</strong> to help other indie developers speed up their workflows.
+                    </p>
+                    <div class="flex gap-3">
+                        <span class="border border-zinc-700 text-zinc-400 px-3 py-1 rounded text-xs font-mono bg-zinc-800/50">Status: Closed Beta</span>
+                        <span class="border border-emerald-900 text-emerald-400 px-3 py-1 rounded text-xs font-mono bg-emerald-900/20">Target: Public Release</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex w-32 h-32 rounded-full border-4 border-zinc-800 items-center justify-center bg-zinc-900 text-zinc-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</Layout>
