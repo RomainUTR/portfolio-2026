@@ -19,7 +19,7 @@ import Layout from "../../layouts/Layout.astro";
                     <h1
                         class="text-6xl md:text-7xl font-bold text-white tracking-tight"
                     >
-                        Neon Racer [On Development]
+                        Neon Racer
                     </h1>
                     <p class="text-2xl text-zinc-400 font-light">
                         Futuristic time trial racing game with a focus on flow
@@ -33,7 +33,7 @@ import Layout from "../../layouts/Layout.astro";
                         target="_blank"
                         class="flex items-center justify-center border border-zinc-700 text-zinc-300 px-5 py-3 font-medium rounded hover:border-[#fa5c5c] hover:text-[#fa5c5c] transition-colors"
                     >
-                        Coming Soon
+                        Release soon
                     </a>
                 </div>
             </div>
@@ -252,6 +252,134 @@ Quaternion targetRotation = Quaternion.LookRotation(targetForward, averageNormal
 // Apply rotation using physics
 rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * settings.alignSpeed));
 </code></pre>
+                </div>
+            </div>
+
+            <div class="mb-6 mt-16">
+                <h3 class="text-xl text-white font-bold mb-2">
+                    Audio-Reactive Grid (CPU to GPU Communication)
+                </h3>
+                <p class="text-zinc-400 leading-relaxed">
+                    To enhance the game's retro-futuristic atmosphere, I
+                    designed a custom grid shader that reacts dynamically to the
+                    music. The technical challenge was analyzing the audio in
+                    real-time and passing that data to the GPU without tanking
+                    performance. I used <strong class="text-white"
+                        >Fast Fourier Transform (FFT)</strong
+                    > to isolate bass frequencies, and a <strong
+                        class="text-white">Material Property Block</strong
+                    > to update the shader efficiently across multiple objects.
+                </p>
+            </div>
+
+            <div
+                class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-2xl mb-12"
+            >
+                <div
+                    class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                >
+                    <span class="ml-2">GridAudioReact.cs</span>
+                    <span
+                        class="bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded text-[10px] ml-auto"
+                        >AUDIO ANALYSIS & SHADER LINK</span
+                    >
+                </div>
+
+                <div class="p-8 overflow-x-auto">
+                    <pre
+                        is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+using UnityEngine;
+
+public class GridAudioReact : MonoBehaviour
+{
+    public Material gridMaterial;
+
+    [Range(0f, 50f)]
+    public float sensitivity = 300.0f;
+
+    [Range(0f, 1f)]
+    public float threshold = 0.1f;
+
+    public float minBrightness = 1.0f;
+    private float[] spectrumData = new float[64];
+    private float currentEmission = 0f;
+
+    private MaterialPropertyBlock _propBlock = null;
+    public Renderer[] _renderer;
+
+    private void Start()
+    {
+        _propBlock = new MaterialPropertyBlock();
+    }
+
+    void Update()
+    {
+        if (gridMaterial == null) return;
+
+        AudioListener.GetSpectrumData(spectrumData, 0, FFTWindow.Rectangular);
+
+        float bassLevel = (spectrumData[0] + spectrumData[1] + spectrumData[2]) / 3.0f;
+
+        float targetValue = 0;
+
+        if (bassLevel > threshold)
+        {
+            targetValue = (bassLevel - threshold) * sensitivity;
+        }
+
+        if (targetValue > currentEmission)
+        {
+            currentEmission = targetValue;
+        }
+        else
+        {
+            currentEmission = Mathf.Lerp(currentEmission, targetValue, Time.deltaTime * 2.0f);
+        }
+
+        foreach (var rend in _renderer)
+        {
+            rend.GetPropertyBlock(_propBlock);
+            _propBlock.SetFloat("_AudioPower", minBrightness + currentEmission);
+            rend.SetPropertyBlock(_propBlock);
+        }
+    }
+}
+</code></pre>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 max-w-5xl">
+                <div
+                    class="group relative bg-[#222] rounded-xl border border-zinc-800 overflow-hidden shadow-lg"
+                >
+                    <img
+                        src="/images/synthgrid-subgraph.png"
+                        alt="SubGraph Logic"
+                        class="w-full h-auto object-cover"
+                    />
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 border-t border-zinc-700"
+                    >
+                        <p class="text-xs text-white font-mono">
+                            Wrapping the grid generation logic into a reusable SubGraph.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="group relative bg-[#222] rounded-xl border border-zinc-800 overflow-hidden shadow-lg"
+                >
+                    <img
+                        src="/images/synthgrid-shader.png"
+                        alt="Master Shader Graph"
+                        class="w-full h-auto object-cover"
+                    />
+                    <div
+                        class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 border-t border-zinc-700"
+                    >
+                        <p class="text-xs text-white font-mono">
+                            Artist-friendly integration in the Master Graph.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
