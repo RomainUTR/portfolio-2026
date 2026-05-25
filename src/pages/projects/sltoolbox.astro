@@ -2,22 +2,37 @@
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout title="Unity Toolbox">
+<Layout title="SL Toolbox - Unity Production Toolbox">
     <main class="max-w-5xl mx-auto px-6 py-20 text-zinc-300">
         
         <header class="mb-20 border-b border-zinc-800 pb-12">
             <a href="/#projects" class="text-zinc-500 hover:text-white mb-8 inline-block font-mono text-sm">← Back to projects</a>
-            
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-                Unity Production Toolbox
-            </h1>
-            <p class="text-xl text-zinc-400 font-light max-w-3xl mb-8">
-                A custom suite of Editor tools designed to speed up the workflow of designers, secure scene management, and clean up the Inspector. Tested and used in student productions.
-            </p>
-            <div class="flex flex-wrap gap-4 text-sm font-mono text-emerald-400">
-                <span class="bg-emerald-900/30 px-3 py-1 rounded">Editor Scripting</span>
-                <span class="bg-emerald-900/30 px-3 py-1 rounded">C# Reflection</span>
-                <span class="bg-emerald-900/30 px-3 py-1 rounded">UX/UI</span>
+    
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+        
+                <div class="space-y-6 max-w-3xl">
+                    <h1 class="text-5xl md:text-6xl font-bold text-white">
+                        Unity Production Toolbox
+                    </h1>
+                    <p class="text-xl text-zinc-400 font-light">
+                        A custom suite of Editor tools designed to speed up the workflow of designers, secure scene management, and clean up the Inspector. Tested and used in student productions.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm font-mono text-emerald-400">
+                        <span class="bg-emerald-900/30 px-3 py-1 rounded">Editor Scripting</span>
+                        <span class="bg-emerald-900/30 px-3 py-1 rounded">C# Reflection</span>
+                        <span class="bg-emerald-900/30 px-3 py-1 rounded">UX/UI</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <a
+                        href="https://github.com/RomainUTR/SLToolbox"
+                        target="_blank"
+                        class="flex items-center justify-center border border-zinc-700 text-zinc-300 px-5 py-3 font-medium rounded hover:border-white hover:text-white transition-colors"
+                    >
+                        GitHub
+                    </a>
+                </div>
             </div>
         </header>
 
@@ -98,9 +113,9 @@ public class TestScene : MonoBehaviour
                 02. Fast Scene Switcher
             </h2>
 
-            <div class="relative w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl mb-8">
-                <video autoplay loop muted playsinline class="w-full h-full object-cover">
-                    <source src="/videos/sceneswitcher-demo.mp4" type="video/mp4" />
+            <div class="relative w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden shadow-2xl mb-8">
+                <video autoplay loop muted playsinline class="w-full h-full object-contain">
+                    <source src="/videos/sltoolbox_sceneswitcher.mp4" type="video/mp4" />
                 </video>
             </div>
 
@@ -109,7 +124,50 @@ public class TestScene : MonoBehaviour
                     Navigating through project folders to find a specific level breaks the developer's flow. I created a fast, context-aware <strong class="text-white">Scene Switcher Popup</strong>.
                 </p>
                 <p>
-                    Instead of a clunky dockable window, it opens instantly via a custom shortcut or by clicking the scene in Hierarchy. It lists all available scenes and allows developers to jump between environments in a fraction of a second, drastically reducing iteration friction.
+                    Instead of a clunky dockable window, it opens instantly via a custom shortcut or by clicking the scene in Hierarchy. It lists all available scenes and allows developers to jump between environments in a fraction of a second, drastically reducing iteration friction. User can also select some scenes as favorites to have them always at hand, and the popup automatically prioritizes recently played scenes for even faster access.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="w-8 h-1 bg-emerald-500 rounded-full"></span>
+                03. Script Generator
+            </h2>
+
+            <div class="relative w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden shadow-2xl mb-8">
+                <video autoplay loop muted playsinline class="w-full h-full object-contain">
+                    <source src="/videos/sltoolbox_scriptgenerator.mp4" type="video/mp4" />
+                </video>
+            </div>
+
+            <div class="text-zinc-400 leading-relaxed max-w-3xl space-y-4">
+                <p>
+                    The idea was to enable scripts to be created in a more organised manner, with the appropriate naming conventions and paths stored within the project.
+                </p>
+                <p>
+                    The main issue arose from the creation of .asset files when creating ScriptableObjects; since Unity has to recompile whenever a file is created, it was structurally impossible to create the asset immediately afterwards. The workaround involved using <strong class="text-white">Editor Preferences</strong> to store the information required for creation, so that this action could be performed once recompilation was complete.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="w-8 h-1 bg-rose-500 rounded-full"></span>
+                04. ScriptableObjects Browser
+            </h2>
+
+            <div class="relative w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden shadow-2xl mb-8">
+                <img 
+                    src="/images/sltoolbox_sobrowser.png" 
+                    alt="Aperçu du ScriptableObjects Browser" 
+                    class="w-full h-full object-contain" 
+                />
+            </div>
+
+            <div class="text-zinc-400 leading-relaxed max-w-3xl space-y-4">
+                <p>
+                    Given that I make extensive use of Scriptable Objects, I thought it would be useful to have a file inspector specifically for them. This browser allows you to view and edit all ScriptableObjects in the project without having to search for them in the Project window. It also supports inline editing, so you can modify values directly from the browser without opening each asset individually.
                 </p>
             </div>
         </section>
@@ -117,44 +175,43 @@ public class TestScene : MonoBehaviour
         <section class="mb-24">
             <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
                 <span class="w-8 h-1 bg-purple-500 rounded-full"></span>
-                03. Custom Inspector Attributes
+                05. Custom Inspector Attributes
             </h2>
             
             <p class="text-zinc-400 leading-relaxed max-w-3xl mb-12">
                 A clean Inspector leads to a cleaner game. Drawing inspiration from heavy plugins like Odin Inspector, I built a lightweight, native attribute library utilizing <strong class="text-white">C# Reflection</strong> to empower the team without bloating the project.
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
-                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLButton]</h3>
-                    <p class="text-zinc-400 text-sm">Transforms a standard C# method into a clickable Inspector button. Perfect for triggering debug events or level logic without entering Play Mode.</p>
-                </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">     
+                <div class="p-6 rounded-xl border border-rose-500/30 bg-rose-500/5 shadow-lg">
+                <h3 class="text-lg text-rose-400 font-bold mb-2 font-mono">[SLButton]</h3>
+                <p class="text-zinc-400 text-sm">Transforms a standard C# method into a clickable Inspector button. Perfect for triggering debug events or level logic without entering Play Mode.</p>
+            </div>
 
-                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
-                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLMinMax]</h3>
-                    <p class="text-zinc-400 text-sm">Converts a Vector2 into a dual-slider. Essential for designers tweaking random ranges (like spawn delays or damage variations).</p>
-                </div>
+            <div class="p-6 rounded-xl border border-amber-500/30 bg-amber-500/5 shadow-lg">
+                <h3 class="text-lg text-amber-400 font-bold mb-2 font-mono">[SLMinMax]</h3>
+                <p class="text-zinc-400 text-sm">Converts a Vector2 into a dual-slider. Essential for designers tweaking random ranges (like spawn delays or damage variations).</p>
+            </div>
 
-                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
-                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLCallback]</h3>
-                    <p class="text-zinc-400 text-sm">Uses Reflection to invoke a specific method the moment the serialized value is modified in the Inspector. Great for auto-updating visuals in the Editor.</p>
-                </div>
+            <div class="p-6 rounded-xl border border-emerald-500/30 bg-emerald-500/5 shadow-lg">
+                <h3 class="text-lg text-emerald-400 font-bold mb-2 font-mono">[SLCallback]</h3>
+                <p class="text-zinc-400 text-sm">Uses Reflection to invoke a specific method the moment the serialized value is modified in the Inspector. Great for auto-updating visuals in the Editor.</p>
+            </div>
 
-                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
-                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLDropdown]</h3>
-                    <p class="text-zinc-400 text-sm">Dynamically populates a dropdown list by calling a function. Prevents spelling errors on dynamic IDs.</p>
-                </div>
+            <div class="p-6 rounded-xl border border-blue-500/30 bg-blue-500/5 shadow-lg">
+                <h3 class="text-lg text-blue-400 font-bold mb-2 font-mono">[SLDropdown]</h3>
+                <p class="text-zinc-400 text-sm">Dynamically populates a dropdown list by calling a function. Prevents spelling errors on dynamic IDs.</p>
+            </div>
 
-                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
-                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLReadOnly] & [SLTitle]</h3>
-                    <p class="text-zinc-400 text-sm">Formatting utilities. ReadOnly displays a variable without allowing modification, while Title creates clean, stylized headers to structure massive scripts.</p>
-                </div>
+            <div class="p-6 rounded-xl border border-purple-500/30 bg-purple-500/5 shadow-lg">
+                <h3 class="text-lg text-purple-400 font-bold mb-2 font-mono">[SLReadOnly] & [SLTitle]</h3>
+                <p class="text-zinc-400 text-sm">Formatting utilities. ReadOnly displays a variable without allowing modification, while Title creates clean, stylized headers to structure massive scripts.</p>
+            </div>
 
-                <div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800 shadow-lg">
-                    <h3 class="text-lg text-white font-bold mb-2 font-mono">[SLInline]</h3>
-                    <p class="text-zinc-400 text-sm">Allows editing ScriptableObjects directly within the component's Inspector, saving designers from constantly switching contexts.</p>
-                </div>
+            <div class="p-6 rounded-xl border border-cyan-500/30 bg-cyan-500/5 shadow-lg">
+                <h3 class="text-lg text-cyan-400 font-bold mb-2 font-mono">[SLInline]</h3>
+                <p class="text-zinc-400 text-sm">Allows editing ScriptableObjects directly within the component's Inspector, saving designers from constantly switching contexts.</p>
+            </div>
 
             </div>
         </section>
@@ -167,11 +224,11 @@ public class TestScene : MonoBehaviour
                         Roadmap & Public Release
                     </h2>
                     <p class="text-zinc-400 leading-relaxed mb-6">
-                        This toolbox is currently in closed beta, being battle-tested across student productions to gather UX feedback and fix edge cases. 
+                        This toolbox is currently in open beta, being battle-tested across student productions to gather UX feedback and fix edge cases. 
                         Once the toolbox is fully stabilized, my goal is to package it for a public release on the <strong class="text-white">Unity Asset Store</strong> and/or <strong class="text-white">GitHub</strong> to help other indie developers speed up their workflows.
                     </p>
                     <div class="flex gap-3">
-                        <span class="border border-zinc-700 text-zinc-400 px-3 py-1 rounded text-xs font-mono bg-zinc-800/50">Status: Closed Beta</span>
+                        <span class="border border-zinc-700 text-zinc-400 px-3 py-1 rounded text-xs font-mono bg-zinc-800/50">Status: Open Beta</span>
                         <span class="border border-emerald-900 text-emerald-400 px-3 py-1 rounded text-xs font-mono bg-emerald-900/20">Target: Public Release</span>
                     </div>
                 </div>
