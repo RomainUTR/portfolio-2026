@@ -1,0 +1,266 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Occult Project">
+    <main class="max-w-6xl mx-auto px-6 py-20 text-zinc-300">
+        <header class="mb-24">
+            <a
+                href="/#projects"
+                class="text-zinc-500 hover:text-white mb-8 inline-block font-mono text-sm transition-colors"
+            >
+                ← Back to projects
+            </a>
+
+            <div
+                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12"
+            >
+                <div class="space-y-4">
+                    <h1
+                        class="text-6xl md:text-7xl font-bold text-white tracking-tight"
+                    >
+                        Occult Project
+                    </h1>
+                    <p class="text-2xl text-zinc-400 font-light">
+                        System-driven cult management game
+                    </p>
+                </div>
+
+                <div class="flex gap-4">
+                    <a
+                        href="https://romainutr.itch.io/occult-project"
+                        target="_blank"
+                        class="flex items-center justify-center border border-zinc-700 text-zinc-300 px-5 py-3 font-medium rounded hover:border-[#a855f7] hover:text-[#a855f7] transition-colors"
+                    >
+                        Play on Itch.io
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-zinc-800 py-8 font-mono text-sm"
+            >
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Role</span
+                    >
+                    <span class="text-white block">Prog / Tech Art</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Team</span
+                    >
+                    <span class="text-white block">3 (With S. Delaty & S. Geneste)</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Timeline</span
+                    >
+                    <span class="text-white block">End of Year Project</span>
+                    <span class="text-zinc-400 text-[10px] block mt-1 italic"
+                        >May 2026 | Bachelor 1st Year</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Stack</span
+                    >
+                    <span class="text-white block">Unity 6 / C#</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-32 max-w-5xl">
+            <h2
+                class="text-3xl font-bold text-white mb-8 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-purple-500 rounded-full"></span>
+                The Context & Design Philosophy
+            </h2>
+
+            <div class="text-lg leading-relaxed space-y-6 text-zinc-300">
+                <p>
+                    Occult Project is a turn-based management game where the player must expand a secret society across a territory. The core mechanic relies on balancing resources: maximizing Influence to reach 100% while keeping Police suspicion and Follower attrition under control.
+                </p>
+                <p>
+                    Co-programming the game alongside Sophia Delaty, my personal focus was to architect a highly modular, <strong class="text-white">data-driven foundation</strong>. Because strategy games require constant balancing tweaks from our Game Designer (Samuel Geneste), hardcoding values was not an option. 
+                </p>
+                <p>
+                    I engineered a system entirely reliant on <strong class="text-white">Scriptable Objects (SSO) and Event Channels (RSE)</strong>. This structure decoupled the game logic from the user interface, ensuring that UI updates, card effects, and region calculations communicate seamlessly without creating a tangled web of dependencies.
+                </p>
+
+                <div class="pt-6">
+                    <h3
+                        class="text-white font-bold mb-4 text-base uppercase tracking-wider"
+                    >
+                        My Contributions
+                    </h3>
+                    <ul
+                        class="grid md:grid-cols-3 gap-6 border-t border-zinc-800 pt-6"
+                    >
+                        <li class="block">
+                            <span class="text-purple-400 block mb-2 text-xl"
+                                >01</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Systems & Architecture</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Designed a resilient Event-Driven architecture and a robust state machine, handling complex mathematical modifiers and preventing negative value crashes.</span
+                            >
+                        </li>
+                        <li class="block">
+                            <span class="text-emerald-400 block mb-2 text-xl"
+                                >02</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Advanced Polymorphism</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Engineered generic classes for card and apostle effects, allowing infinite combinations of modifiers without touching the core codebase.</span
+                            >
+                        </li>
+                        <li class="block">
+                            <span class="text-amber-400 block mb-2 text-xl"
+                                >03</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Predictive UI & Tooltips</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Developed a dynamic interface with contextual tooltips that automatically calculates and previews complex mathematical outcomes before the player commits to an action.</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2
+                class="text-3xl font-bold text-white mb-12 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-emerald-500 rounded-full"></span>
+                Learning & Implementation
+            </h2>
+
+            <div class="mb-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-emerald-400 font-mono text-sm">01.</span> Generic Architecture & Polymorphism
+                </h3>
+
+                <div
+                    class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4"
+                >
+                    <p>
+                        Handling different types of entities (Action Cards, Apostles) modifying the same regions could easily lead to duplicated code. To solve this, I leveraged C# generics (<code class="text-white bg-zinc-800 px-1 rounded">&lt;T&gt;</code>) and inheritance to create a unified effect pipeline.
+                    </p>
+                    <p>
+                        By creating an abstract base class <code class="text-white bg-zinc-800 px-1 rounded">SO_Effect&lt;T&gt;</code>, the system encapsulates the logic while strongly typing the execution context. Child classes like <code class="text-white bg-zinc-800 px-1 rounded">SO_ActionCardEffect</code> share the same execution contract via <code class="text-white bg-zinc-800 px-1 rounded">override</code>, but can implement their own specific behaviors using <code class="text-white bg-zinc-800 px-1 rounded">virtual</code> methods. 
+                    </p>
+                    <p>
+                        This architecture enabled me to make a specific behaviour for an Event system, which would have affected global resources rather than a specific region. Unfortunately, this system was not included in the final draft.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-xl max-w-4xl mb-8"
+                >
+                    <div
+                        class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                    >
+                        <span class="ml-2">SO_Effect.cs</span>
+                        <span
+                            class="bg-emerald-900/50 text-emerald-300 px-2 py-0.5 rounded text-[10px] ml-auto"
+                            >POLYMORPHISM</span
+                        >
+                    </div>
+                    <div class="p-6 overflow-x-auto">
+                        <pre
+                            is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+using Sirenix.OdinInspector;
+using UnityEngine;
+
+// Generic base class for all effects in the game
+public abstract class SO_Effect&lt;T&gt; : ScriptableObject
+{
+    public bool IsInstantEvent = true;
+
+    public abstract void ExecuteEffect(T context);
+}
+
+// Inherited class specifically for Region contexts
+public abstract class SO_ActionCardEffect : SO_Effect&lt;RSO_RegionResources&gt;
+{
+    [TextArea] public string TooltipText;
+
+    // The region is dynamically injected as the context
+    public override void ExecuteEffect(RSO_RegionResources region)
+    {
+        // Custom effect logic here
+    }
+
+    public virtual float GetModifierForRessource(ResourceType type, RSO_RegionResources regionRuntimeDatas)
+    {
+        return 0;
+    }
+}
+</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-purple-400 font-mono text-sm">02.</span> Non-Intrusive Tutorial State Machine
+                </h3>
+
+                <div class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4">
+                    <p>
+                        Integrating a tutorial at the end of production is notoriously dangerous, as it often breaks existing logic. Instead of hardcoding tutorial checks into the gameplay scripts, I built a secure State Machine driven by Enums.
+                    </p>
+                    <p>
+                        This acts as an external layer of "logical gates". The narrative events and UI blockers listen to the state machine via Runtime Scriptable Object (RSE). The core gameplay loop remains untouched and completely unaware of the tutorial, ensuring maximum stability even when the player clicks frantically.
+                    </p>
+                </div>
+                <div class="bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden shadow-lg relative aspect-video">
+                        <img
+                            src="/images/occultproject-tutorial.png"
+                            alt="Tutorial UI and Logical Blockers"
+                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                        />
+                        
+                        <div class="absolute bottom-4 left-4 pointer-events-none">
+                            <span class="bg-purple-900/80 text-purple-200 text-[10px] font-mono px-2 py-1 rounded backdrop-blur-sm border border-purple-500/50 uppercase tracking-wider">
+                                UI Blockers & Narrative Flow
+                            </span>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="mb-24">
+                <h3 class="text-xl text-white font-bold mb-4 flex items-center gap-2">
+                    <span class="text-amber-400 font-mono text-sm">03.</span> Dynamic Tooltips & Predictive UI
+                </h3>
+
+                <div class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4">
+                    <p>
+                        To give the player perfect control over their strategy, the UI needed to be predictive. When dragging a card over a region, the Global Manager calculates the upcoming math (including negative threshold penalties for Police and Money) and updates the top bar before the action is even confirmed.
+                    </p>
+                    <p>
+                        The tooltips themselves use a <code class="text-white bg-zinc-800 px-1 rounded">Dynamic Payload</code> structure. Depending on whether the player hovers an Apostle or an Action Card, the tooltip auto-generates its layout, stats lines, and colors based entirely on the injected Scriptable Object data, completely decoupling the UI layout from the gameplay data.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</Layout>

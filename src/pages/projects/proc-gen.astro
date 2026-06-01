@@ -1,0 +1,313 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Procedural World Generation">
+    <main class="max-w-6xl mx-auto px-6 py-20 text-zinc-300">
+        <header class="mb-24">
+            <a
+                href="/#projects"
+                class="text-zinc-500 hover:text-white mb-8 inline-block font-mono text-sm transition-colors"
+            >
+                ← Back to projects
+            </a>
+
+            <div
+                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12"
+            >
+                <div class="space-y-4">
+                    <h1
+                        class="text-6xl md:text-7xl font-bold text-white tracking-tight"
+                    >
+                        Procedural World Generation
+                    </h1>
+                    <p class="text-2xl text-zinc-400 font-light">
+                        A fully deterministic, data-driven rogue-like generation system
+                    </p>
+                </div>
+
+                <div class="flex gap-4">
+                    <a
+                        href="https://github.com/RomainUTR/GenProceduralAssignement"
+                        target="_blank"
+                        class="flex items-center justify-center border border-zinc-700 text-zinc-300 px-5 py-3 font-medium rounded hover:border-white hover:text-white transition-colors"
+                    >
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-zinc-800 py-8 font-mono text-sm"
+            >
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Role</span
+                    >
+                    <span class="text-white block">Prog</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Team</span
+                    >
+                    <span class="text-white block">Solo</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Timeline</span
+                    >
+                    <span class="text-white block">Academic Assignment</span>
+                    <span class="text-zinc-400 text-[10px] block mt-1 italic"
+                        >May 2026 | Bachelor 1st Year</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Stack</span
+                    >
+                    <span class="text-white block">Unity / C#</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-32 max-w-5xl">
+            <h2
+                class="text-3xl font-bold text-white mb-8 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-indigo-500 rounded-full"></span>
+                The Context
+            </h2>
+
+            <div class="text-lg leading-relaxed space-y-6 text-zinc-300">
+                <p>
+                    The goal of this project was to build a system capable of generating a simplified version of a rogue-like castle environment. The core constraint was strict <strong class="text-white">determinism</strong>: the system had to generate a complete set of 15 unique (<em>like Aincrad in Sword Art Online but smaller</em>), reproducible levels based entirely on a single starting seed string.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <div class="relative w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl">
+                <video 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline 
+                    class="w-full h-full object-cover"
+                >
+                    <source src="/videos/genproc_short.mp4" type="video/mp4" />
+                </video>
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-6 left-6 pointer-events-none">
+                    <span class="bg-indigo-600/80 text-white text-xs font-mono px-3 py-1 rounded backdrop-blur-sm border border-indigo-400/50">
+                        100% DETERMINISTIC GENERATION
+                    </span>
+                </div>
+            </div>
+            <p class="text-center text-zinc-500 font-mono text-sm mt-4">
+                Dynamic generation of the overworld, organic villages, and BSP dungeons.
+            </p>
+        </section>
+
+        <section class="mb-32">
+            <h2
+                class="text-3xl font-bold text-white mb-12 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-emerald-500 rounded-full"></span>
+                Architecture & Implementation
+            </h2>
+            
+            <div class="mb-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-amber-400 font-mono text-sm">01.</span> Data Matrices & Multi-Layered Noise
+                </h3>
+
+                <div
+                    class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4"
+                >
+                    <p>
+                        To optimize performance, the world is not generated by instantiating 3D blocks immediately. Instead, everything is processed as <strong class="text-white">abstract data matrices</strong>. 
+                    </p>
+                    <p>
+                        I generate a raw terrain matrix using Perlin noise, normalize it against a water level threshold, and independently generate a biome matrix. These abstract grids are merged and evaluated before a single GameObject is instantiated in the scene.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-xl max-w-4xl mb-8"
+                >
+                    <div
+                        class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                    >
+                        <span class="ml-2">WorldProceduralGeneration.cs</span>
+                        <span
+                            class="bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded text-[10px] ml-auto"
+                            >MATRIX PROCESSING</span
+                        >
+                    </div>
+                    <div class="p-6 overflow-x-auto">
+                        <pre
+                            is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+void RegenerateMap(Vector2 seed)
+{
+    // 1. Dynamic map shrinking based on current floor level (RSO)
+    int currentWidth = Mathf.Max(width - (runData.currentLevel - 1), 21);
+    int currentHeight = Mathf.Max(height - (runData.currentLevel - 1), 21);
+
+    // 2. Generate and normalize abstract Data Matrices
+    float[,] rawTerrainMap = GenerateNoiseMap(currentWidth, currentHeight, scale, octaves, seed);
+    float[,] normalizedTerrain = NormalizeTerrain(rawTerrainMap, waterLevel, seed, scale);
+
+    Vector2 biomePosition = seed + new Vector2(10000f, 10000f);
+    float[,] rawBiomeMap = GenerateNoiseMap(currentWidth, currentHeight, scale, octaves, biomePosition);
+    float[,] normalizedBiome = NormalizeBiome(rawBiomeMap);
+
+    // 3. Merge data before any physical instantiation
+    float[,] finalMap = MergeTerrainWithBiome(normalizedTerrain, normalizedBiome);
+
+    InstantiateMap(finalMap, rawTerrainMap);
+    GenerateVillage(finalMap, seed, rawTerrainMap);
+}
+</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-24 mt-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-blue-400 font-mono text-sm">02.</span> Binary Space Partitioning (BSP)
+                </h3>
+
+                <div
+                    class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4"
+                >
+                    <p>
+                        While the overworld village uses an organic growth algorithm to expand naturally, the Dungeon required a more clinical and structured approach. 
+                    </p>
+                    <p>
+                        I implemented a <strong class="text-white">BSP (Binary Space Partitioning) algorithm</strong> to recursively subdivide the available space. This guarantees non-overlapping rooms and creates a methodical exploration loop before the player reaches the boss room.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-5xl mb-8">
+                    <div
+                        class="group relative bg-[#222] rounded-xl border border-zinc-800 overflow-hidden shadow-lg aspect-video"
+                    >
+                        <img
+                            src="/images/bsp-step1.png" 
+                            alt="BSP Generation Logic"
+                            class="w-full h-full object-cover"
+                        />
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 border-t border-zinc-700"
+                        >
+                            <p class="text-xs text-white font-mono">
+                                The global space is recursively subdivided into varying-sized areas to guarantee a non-overlapping structure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="group relative bg-[#222] rounded-xl border border-zinc-800 overflow-hidden shadow-lg aspect-video"
+                    >
+                        <img
+                            src="/images/bsp-step2.png"
+                            alt="In-game Dungeon"
+                            class="w-full h-full object-cover"
+                        />
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 border-t border-zinc-700"
+                        >
+                            <p class="text-xs text-white font-mono">
+                                Randomly sized rooms are calculated within each leaf node while strictly enforcing safety margins (padding).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="group relative bg-[#222] rounded-xl border border-zinc-800 overflow-hidden shadow-lg aspect-video"
+                    >
+                        <img
+                            src="/images/bsp-step3.png"
+                            alt="In-game Dungeon"
+                            class="w-full h-full object-cover"
+                        />
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black/80 p-3 border-t border-zinc-700"
+                        >
+                            <p class="text-xs text-white font-mono">
+                                The BSP logic tree is traversed bottom-up to mathematically connect the center of each zone with corridors of a defined thickness.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-24 mt-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-purple-400 font-mono text-sm">03.</span> Deterministic Seed Derivation
+                </h3>
+
+                <div class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4">
+                    <p>
+                        A true rogue-like engine must guarantee that a specific text seed (e.g., "Aincrad") will always generate the exact same 15-floor tower layout. Relying on Unity's default <code>Random.InitState</code> was not robust enough for a multi-layered progression system.
+                    </p>
+                    <p>
+                        I created a custom <strong class="text-white">Seed Derivation Pipeline</strong>. The engine takes the Master Seed string, hashes it into a numeric value, and derives a unique sub-seed for the current floor level. This sub-seed is then injected into an isolated <code>System.Random (PRNG)</code> instance passed down to all generation scripts (World, Village, Dungeon), ensuring absolute mathematical determinism regardless of the execution order.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-xl max-w-4xl"
+                >
+                    <div
+                        class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                    >
+                        <span class="ml-2">SeedManager.cs / DungeonGenerator.cs</span>
+                        <span
+                            class="bg-purple-900/50 text-purple-300 px-2 py-0.5 rounded text-[10px] ml-auto"
+                            >PRNG INJECTION</span
+                        >
+                    </div>
+                    <div class="p-6 overflow-x-auto">
+                        <pre
+                            is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+// --- 1. SEED DERIVATION (In the Manager) ---
+private void LaunchCurrentLevel()
+{
+    // Derive a unique seed based on the Master Hash and the Current Level
+    Vector2 levelSeed = runData.GetDerivedLevelSeed();
+    
+    // Broadcast the deterministic mathematical constraint to the engine
+    OnSeedReady?.RaiseEvent(levelSeed);
+}
+
+// --- 2. PRNG ISOLATION (In the Generators) ---
+void GenerateDungeonDeterministic(Vector2 seed)
+{
+    // Create an isolated PRNG instance tied exclusively to this floor's seed
+    System.Random prng = new System.Random(seed.GetHashCode());
+
+    // Inject the PRNG into the generation pipeline
+    GenerateDungeon(prng); 
+}
+
+// Every random decision (BSP splitting, room sizes) now uses 'prng.Next()'
+// guaranteeing 100% reproducible results for this specific floor.
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

@@ -1,0 +1,347 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Arena 44">
+    <main class="max-w-6xl mx-auto px-6 py-20 text-zinc-300">
+        <header class="mb-24">
+            <a
+                href="/#projects"
+                class="text-zinc-500 hover:text-white mb-8 inline-block font-mono text-sm transition-colors"
+            >
+                ← Back to projects
+            </a>
+
+            <div
+                class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12"
+            >
+                <div class="space-y-4">
+                    <h1
+                        class="text-6xl md:text-7xl font-bold text-white tracking-tight"
+                    >
+                        Arena 44
+                    </h1>
+                    <p class="text-2xl text-zinc-400 font-light">
+                        Vector Shooter with a claustrophobic shrinking arena
+                    </p>
+                </div>
+
+                <div class="flex gap-4">
+                    <a
+                        href="https://romainutr.itch.io/arena-44"
+                        target="_blank"
+                        class="flex items-center justify-center border border-zinc-700 text-zinc-300 px-5 py-3 font-medium rounded hover:border-[#fa5c5c] hover:text-[#fa5c5c] transition-colors"
+                    >
+                        Play on Itch.io
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-zinc-800 py-8 font-mono text-sm"
+            >
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Role</span
+                    >
+                    <span class="text-white block">Prog / Tech Art / GD</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Team</span
+                    >
+                    <span class="text-white block">Solo</span>
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Timeline</span
+                    >
+                    <span class="text-white block">7 Days (Jam)</span>
+                    <span class="text-zinc-400 text-[10px] block mt-1 italic"
+                        >April 2026 | Bachelor 1st Year</span
+                    >
+                </div>
+                <div>
+                    <span
+                        class="block text-zinc-500 text-xs mb-2 uppercase tracking-wider"
+                        >Stack</span
+                    >
+                    <span class="text-white block">Unity 6 / C#</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-32 max-w-5xl">
+            <h2
+                class="text-3xl font-bold text-white mb-8 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-indigo-500 rounded-full"></span>
+                The Context & Design Philosophy
+            </h2>
+
+            <div class="text-lg leading-relaxed space-y-6 text-zinc-300">
+                <p>
+                    Arena 44 is a fast-paced, minimalist vector shooter focused on spatial awareness and risk management. 
+                    Developed in a single week for the Frene Jam, the core foundation was built around two mandatory modifiers: 
+                    <strong class="text-white">"You are your own enemy"</strong> (your projectiles bounce back as lethal hazards) and 
+                    <strong class="text-white">"Everything shrinks"</strong>.
+                </p>
+                <p>
+                    While the jam's prompt explicitly requested that everything should shrink over time, early prototyping revealed a critical design flaw. Shrinking the player alongside the arena only created an illusion of a <strong class="text-white">"zoom out"</strong>, completely neutralizing the mechanical tension. 
+                </p>
+                <p>
+                    I deliberately chose to <strong class="text-white">break this rule to serve the game's core loop:</strong> the player retains their original size while the walls and UI slowly collapse around them. This architectural decision transformed a visual gimmick into a genuine, <strong class="text-white">claustrophobic gameplay mechanic</strong> that actively increases the difficulty as the timer runs.
+                </p>
+
+                <div class="pt-6">
+                    <h3
+                        class="text-white font-bold mb-4 text-base uppercase tracking-wider"
+                    >
+                        My Contributions
+                    </h3>
+                    <ul
+                        class="grid md:grid-cols-3 gap-6 border-t border-zinc-800 pt-6"
+                    >
+                        <li class="block">
+                            <span class="text-indigo-400 block mb-2 text-xl"
+                                >01</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Core Gameplay & Physics</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Engineered a robust projectile ricochet system and the claustrophobic shrinking arena mechanic to create a tense, risk-reward loop.</span
+                            >
+                        </li>
+                        <li class="block">
+                            <span class="text-purple-400 block mb-2 text-xl"
+                                >02</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Tech Art & Game Feel</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Delivered a visceral combat experience by integrating heavy hit-stops, screen shakes, and dynamic visual effects within a clean vector aesthetic.</span
+                            >
+                        </li>
+                        <li class="block">
+                            <span class="text-amber-400 block mb-2 text-xl"
+                                >03</span
+                            >
+                            <span class="text-white font-bold block mb-1"
+                                >Event-Driven Architecture</span
+                            >
+                            <span class="text-sm text-zinc-500"
+                                >Structured the project using a clean, event-based architecture, ensuring the UI and gameplay systems communicate seamlessly without coupling.</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2
+                class="text-3xl font-bold text-white mb-12 flex items-center gap-3"
+            >
+                <span class="w-12 h-1 bg-emerald-500 rounded-full"></span>
+                Learning & Implementation
+            </h2>
+
+            <div class="mb-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-emerald-400 font-mono text-sm">01.</span> Custom Physics: The Math Behind the Ricochets
+                </h3>
+
+                <div
+                    class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4"
+                >
+                    <p>
+                        To ensure absolute precision and avoid the unpredictability of native physics engines at high speeds, I engineered a custom, math-driven projectile system. Relying on standard rigidbodies in a confined, high-velocity environment often leads to collision detection failures or "tunneling."
+                    </p>
+                    <p>
+                        Instead of physics engine ticks, the movement logic is handled inside <code class="text-white bg-zinc-800 px-1 rounded">FixedUpdate</code> using <code class="text-white bg-zinc-800 px-1 rounded">Physics.SphereCast</code>. This continuous collision detection method projects a volume forward based on the projectile's speed and direction, guaranteeing flawless wall impacts.
+                    </p>
+                    <p>
+                        When a collision is detected, the system calculates the exact ricochet trajectory. For an incoming velocity vector <em>V</em> striking a surface characterized by its perpendicular normal vector <em>N</em>, the new symmetrical exit path relies on this reflection formula:
+                    </p>
+
+                    <div
+                        class="bg-black/30 p-4 rounded-lg border border-zinc-800 text-center font-mono text-lg text-emerald-300 my-4 tracking-wider"
+                    >
+                        <b>R</b> = <b>V</b> - 2(<b>V</b> &middot; <b>N</b>)<b>N</b>
+                    </div>
+
+                    <p>
+                        In C#, this is elegantly resolved using Unity's <code class="text-white bg-zinc-800 px-1 rounded">Vector3.Reflect</code>, which computes the dot product and vector subtraction in the background.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-24">
+                <h3
+                    class="text-xl text-white font-bold mb-4 flex items-center gap-2"
+                >
+                    <span class="text-blue-400 font-mono text-sm">02.</span> Data-Driven Projectile Architecture
+                </h3>
+
+                <div class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4">
+                    <p>
+                        To maintain a modular architecture, the projectile logic is entirely decoupled from its balancing data. Variables such as speed, collision radius, and maximum bounces are injected via a <code class="text-white bg-zinc-800 px-1 rounded">ProjectileStatsSO</code> ScriptableObject. This allows for rapid iteration and game feel adjustments without ever touching the core mathematical loop.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-[#1e1e1e] rounded-xl border border-zinc-800 overflow-hidden shadow-xl max-w-4xl mb-8"
+                >
+                    <div
+                        class="flex items-center gap-2 px-6 py-3 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-500 font-mono"
+                    >
+                        <span class="ml-2">Projectile.cs</span>
+                        <span
+                            class="bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded text-[10px] ml-auto"
+                            >CUSTOM PHYSICS BEHAVIOR</span
+                        >
+                    </div>
+                    <div class="p-6 overflow-x-auto">
+                        <pre
+                            is:raw><code class="language-csharp text-sm font-mono leading-relaxed">
+using Sirenix.OdinInspector;
+using System.Collections;
+using UnityEngine;
+
+public class Projectile : MonoBehaviour
+{
+    [InlineEditor, SerializeField] private ProjectileStatsSO Stats;
+    [Required] public RSE_OnComboFinished OnComboFinished;
+    [InlineEditor, Required] public SoundData BounceSound;
+
+    private Vector3 _currentDirection;
+    private int _bounceCount = 0;
+    private float _age = 0f;
+    public bool CanHurtPlayer { get; private set; } = false;
+
+    public int EnemyKilledCount = 0;
+
+    public void Initialize(Vector3 startDirection)
+    {
+        _currentDirection = startDirection.normalized;
+        StartCoroutine(FirstSecondsKillsCount());
+    }
+
+    void Update()
+    {
+        _age += Time.deltaTime;
+
+        if (!CanHurtPlayer && _age >= Stats.PlayerGracePeriod)
+        {
+            CanHurtPlayer = true;
+            Material objectMat = GetComponent<MeshRenderer>().material;
+            objectMat.color = Color.red;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        float moveDistance = Stats.Speed * Time.deltaTime;
+        RaycastHit hit;
+
+        if (Physics.SphereCast(transform.position, Stats.CollisionRadius, _currentDirection, out hit, moveDistance, Stats.BounceMask))
+        {
+            _bounceCount++;
+
+            if (_bounceCount > Stats.MaxBounces)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            _currentDirection = Vector3.Reflect(_currentDirection, hit.normal);
+            AudioManager.Instance.PlayClipAt(BounceSound, transform.position);
+            transform.position = hit.point + (hit.normal * Stats.CollisionRadius);
+        } 
+        else
+        {
+            transform.Translate(_currentDirection * moveDistance, Space.World);
+        }
+    }
+
+    private IEnumerator FirstSecondsKillsCount()
+    {
+        yield return new WaitForSeconds(1.5f);
+        OnComboFinished.RaiseEvent(EnemyKilledCount);
+    }
+}
+</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-24">
+                <h3 class="text-xl text-white font-bold mb-4 flex items-center gap-2">
+                    <span class="text-purple-400 font-mono text-sm">03.</span> Encapsulation & Logic Protection
+                </h3>
+
+                <div class="text-zinc-400 leading-relaxed mb-8 max-w-3xl space-y-4">
+                    <p>
+                        A key part of keeping the codebase clean was strictly controlling how external systems interact with the projectiles. In the script above, the state of the bullet is defined by:
+                    </p>
+                    <div is:raw class="bg-black/30 p-4 rounded-lg border border-zinc-800 font-mono text-sm text-purple-300 my-4">
+                        public bool CanHurtPlayer { get; private set; } = false;
+                    </div>
+                    <p>
+                        This auto-implemented property applies a fundamental principle of Object-Oriented Programming: <strong>Encapsulation</strong>. 
+                        By setting the setter to <code class="text-white bg-zinc-800 px-1 rounded">private</code>, the entire project can read the state of the projectile (e.g., the player's health script checking <code class="text-white bg-zinc-800 px-1 rounded">if (projectile.CanHurtPlayer)</code>), but absolutely no external system can modify it. 
+                        Only the projectile itself holds the authority to change its own state after its grace period, preventing accidental overrides from other scripts.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20 pt-24 border-t border-zinc-800">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <span class="w-12 h-1 bg-pink-500 rounded-full"></span>
+                Game Feel & Visual Feedbacks
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-lg leading-relaxed space-y-6 text-zinc-400">
+                    <p>
+                        To compensate for the minimalist vector aesthetic, the game relies heavily on <strong>"Juice"</strong> to ensure combat feels visceral and rewarding. I focused extensively on visual communication to keep the player informed without relying on complex UI.
+                    </p>
+                    <p>
+                        Using the <strong class="text-white">Feel</strong> asset, I implemented a robust feedback loop: heavy hit-stops (micro-pauses in time upon impact), dynamic chromatic aberration, and intense screen shakes. Every wall bounce and enemy hit has a physical weight to it.
+                    </p>
+                    <p>
+                        The clean, sharp geometry is rendered using <strong class="text-white">Shapes</strong>, guaranteeing absolute readability in the chaos. All of these effects are triggered through my event-driven architecture, ensuring the core physics and the visual juice remain perfectly decoupled.
+                    </p>
+                </div>
+                
+                <div class="aspect-video bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden shadow-lg relative">
+                    <video
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                        class="w-full h-full object-cover"
+                        poster="/images/arena44-cover.png"
+                    >
+                        <source src="/videos/arena44-game.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <div class="absolute bottom-4 left-4 pointer-events-none">
+                        <span class="bg-pink-600/80 text-white text-[10px] font-mono px-2 py-1 rounded backdrop-blur-sm border border-pink-400/50 uppercase tracking-wider">
+                            Hit-Stops & Screen Shake
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
